@@ -1,28 +1,33 @@
 #include <stdio.h>
 
-struct Data
-{
- int num1;
- char oper;
- int num2;
- char str[10];
- float num3;
-};
+void print_menu(char *menu[], int size);
 
-int main()
-{
-    struct Data d1 = {2, '+', 1, "is", 1.1};
-    struct Data d2;
-    FILE *fptr;
-    if ((fptr = fopen("text.txt", "w +")) == NULL)
+int main() {
+    char *menu[] = {"File", "Edit", "View", "Insert", "Help"};
+    int size = sizeof(menu) / sizeof(menu[0]);
+    int option;
+    //printf("%d\n",size);
+    print_menu(menu,size);
+    
+    printf("Select your option: ");
+    scanf("%d", &option);
+    
+    if (option >= 1 && option <= size) 
     {
-fprintf(stderr, "Can't open input file text.txt!\n");
-return 1;
+        printf("You have selected %s Menu\n", menu[option - 1]);
     }
-    fwrite(&d1, sizeof(d1), 1, fptr);
-    rewind(fptr);
-    fread(&d2, sizeof(d2), 1, fptr);
-    printf("% d % c % d % s % f\n", d2.num1, d2.oper, d2.num2, d2.str, d2.num3);
-    fclose(fptr);
+    else
+    {
+        printf("Invalid option selected\n");
+    }
+    
     return 0;
+}
+
+void print_menu(char *menu[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d. %s\n", i + 1, menu[i]);
+    }
 }
