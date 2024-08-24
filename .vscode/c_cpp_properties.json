@@ -4,9 +4,9 @@
       "name": "windows-gcc-x64",
       "includePath": [
         "${workspaceFolder}/**",
-        "C:\\msys64\\ucrt64\\include\\c++\\13.2.0\tr1"
+        "C:\\MinGW\\include"
       ],
-      "compilerPath": "C:/msys64/ucrt64/bin/gcc.exe",
+      "compilerPath": "C:\\MinGW\\bin\\gcc.exe",
       "cStandard": "${default}",
       "cppStandard": "${default}",
       "intelliSenseMode": "windows-gcc-x64",
